@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sample Html Document</title>
+
+	<script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
+
+	<script src="Script.js"></script>
+</head>
+<body>
+	<button id="register-btn">Registeration View</button>
+	<button id="update-btn">Update View</button>
+	<div id='registeration' hidden="true" style="background-color: #D3D3D3; width: 25%">
+		<h1>Register User</h1>
+		<form id="new-user">
+			<table>
+				<tr>
+					<td><label>Name</label></td>
+					<td><input type="text" id="namefield"></td>
+				</tr>
+				<tr>
+					<td><label>Address</label></td>
+					<td><input type="text" id="addressfield"></td>
+				</tr>
+				<tr>
+					<td><label>Password</label></td>
+					<td><input type="text" id="passwordfield" ></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><button style="float: right;">Create User</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div id='update' hidden="true" style="background-color: #D3D3D3; width: 25%">
+		<h1>Update User</h1>
+		<form id="update-user">
+			<table>
+				<tr>
+					<td><label>ID</label></td>
+					<td><input type="text" id="idfield-update"></td>
+				</tr>
+				<tr>
+					<td><label>Name</label></td>
+					<td><input type="text" id="namefield-update"></td>
+				</tr>
+				<tr>
+					<td><label>Address</label></td>
+					<td><input type="text" id="addressfield-update"></td>
+				</tr>
+				<tr>
+					<td><label>Password</label></td>
+					<td><input type="text" id="passwordfield-update" ></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><button style="float: right;">Update User</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<hr>
+	<br>
+	<br>
+	<label>Get All Users : </label>
+	<button id="getallbutton">Get All Users</button>
+	<br>
+	<br>
+	<table id='data-table'>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Password</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody id="userDetails">
+			
+		</tbody>
+	</table>
+</body>
+</html>
