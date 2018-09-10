@@ -74,4 +74,41 @@ router.get("/", function(req, res) {
   fs.createReadStream(inputFile).pipe(parser);
 });
 
+router.get("/", function(req, res) {
+  Controller.getUsers()
+    .then(function(data) {
+      var total = 0;
+
+      for (i = 0; i < data.users.length; i++) {
+        total += data.users[i]["mark"];
+      }
+
+      res.status(data.status);
+      res.send({ total: total });
+    })
+    .catch(function(err) {
+      res.status(err.status).send({ message: err.message });
+    });
+});
+
+router.post("/", function(req, res) {
+  Controller.addUser(req.body)
+    .then(function(data) {
+      res.status(data.status).send({ message: data.message });
+    })
+    .catch(function(err) {
+      res.status(err.status).send({ message: err.message });
+    });
+});
+
+router.get("/:id", function(req, res) {
+  Controller.getUser(req.params.id)
+    .then(function(data) {
+      res.status(data.status).send({ mark: data.user[0]["mark"] });
+    })
+    .catch(function(err) {
+      res.status(err.status).send({ message: err.message });
+    });
+});
+
 module.exports = router;
